@@ -1,0 +1,27 @@
+diff -ru /tmp/shims/lib/setImmediate/setImmediate.js ./shims/lib/setImmediate/setImmediate.js
+--- /tmp/shims/lib/setImmediate/setImmediate.js 2015-10-24 14:02:55.819558877 +0000
++++ ./shims/lib/setImmediate/setImmediate.js    2015-10-24 14:03:24.629558645 +0000
+@@ -182,4 +182,4 @@
+ 
+     attachTo.setImmediate = setImmediate;
+     attachTo.clearImmediate = clearImmediate;
+-}(this));
++}(h$getGlobal(this)));
+diff -ru /tmp/shims/src/platform.js ./shims/src/platform.js
+--- /tmp/shims/src/platform.js  2015-09-04 23:23:55.000000000 +0000
++++ ./shims/src/platform.js     2015-10-24 19:31:43.619399836 +0000
+@@ -1,6 +1,7 @@
+-
+ /* platform-specific setup */
+ 
++require("globals");
++
+ // top-level debug initialization needs this. declare it in case we aren't in the same file as out.js
+ function h$ghcjszmprimZCGHCJSziPrimziJSRef_con_e() { return h$stack[h$sp]; };
+
+diff -ru /tmp/runmain.js ./runmain.js
+--- /tmp/runmain.js     2015-10-24 19:23:48.499403666 +0000
++++ ./runmain.js       2015-10-24 19:23:53.659403624 +0000
+@@ -1,2 +1,2 @@
+-h$main(h$mainZCMainzimain);
++h$runSync(h$mainZCMainzimain, true);
