@@ -33,4 +33,8 @@ deployment:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push circleci/elasticsearch
+      - docker push abarbu/java:8
+      - docker push abarbu/android:22
+      - docker push abarbu/node.js:0.12
+      - docker push abarbu/nativescript
+      - docker push abarbu/stack-ghcjs-nativescript:lts-3.0
