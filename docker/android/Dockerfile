@@ -7,7 +7,7 @@ add-apt-repository -y ppa:cwchien/gradle && \
 apt-get update && \
 apt-get install -y curl lib32stdc++6 lib32z1 lib32ncurses5 lib32bz2-1.0 g++ ant python make gradle
 
-RUN curl http://dl.google.com/android/android-sdk_r24.2-linux.tgz | tar xz -C /usr/local/
+RUN curl http://dl.google.com/android/android-sdk_r24.2-linux.tgz | tar xz --no-same-owner -C /usr/local/
 ENV ANDROID_HOME /usr/local/android-sdk-linux
 ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
