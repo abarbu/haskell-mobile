@@ -1,5 +1,7 @@
 # Haskell on mobile devices
 
+[![Build Status](http://circleci-badges-max.herokuapp.com/img/abarbu/haskell-mobile/master?token=88944588e8d8ad1413be5d0f2d578ab3b8709c6d)](https://circleci.com/gh/abarbu/haskell-mobile/tree/master)
+
 An environment to build apps for mobile devices, Android & iOS, with
 bindings to all of the native SDKs including UIs all in Haskell. Note
 that while this is functional, as in one can in principle build any
@@ -100,4 +102,5 @@ docker build -t abarbu/stack-ghcjs-nativescript:lts-3.0 docker/stack-ghcjs-nativ
 ```
 
 This package is distributed under the MIT License
+
 Copyright (c) 2015 Andrei Barbu <andrei@0xab.com>

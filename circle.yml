@@ -1,0 +1,36 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - "~/docker"
+  override:
+    - docker info
+    - if [[ -e ~/docker/java.tar ]]; then docker load --input ~/docker/java.tar; fi
+    - docker build -t abarbu/java:8 docker/java
+    - mkdir -p ~/docker; docker save abarbu/java > ~/docker/java.tar
+    - if [[ -e ~/docker/android.tar ]]; then docker load --input ~/docker/android.tar; fi
+    - docker build -t abarbu/android:22 docker/android
+    - mkdir -p ~/docker; docker save abarbu/android:22 > ~/docker/android.tar
+    - if [[ -e ~/docker/node.js.tar ]]; then docker load --input ~/docker/node.js.tar; fi
+    - docker build -t abarbu/node.js:0.12 docker/node.js
+    - mkdir -p ~/docker; docker save abarbu/node.js:0.12 > ~/docker/node.js.tar
+    - if [[ -e ~/docker/nativescript.tar ]]; then docker load --input ~/docker/nativescript.tar; fi
+    - docker build -t abarbu/nativescript docker/nativescript
+    - mkdir -p ~/docker; docker save abarbu/nativescript > ~/docker/nativescript.tar
+    - if [[ -e ~/docker/stack-ghcjs-nativescript.tar ]]; then docker load --input ~/docker/stack-ghcjs-nativescript.tar; fi
+    - docker build -t abarbu/stack-ghcjs-nativescript:lts-3.0 docker/stack-ghcjs-nativescript
+    - mkdir -p ~/docker; docker save abarbu/stack-ghcjs-nativescript:lts-3.0 > ~/docker/stack-ghcjs-nativescript.tar
+
+test:
+  override:
+    - docker run -d -p 9200:9200 circleci/elasticsearch; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:9200
+
+deployment:
+  hub: 
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push circleci/elasticsearch
