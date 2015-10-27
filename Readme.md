@@ -58,6 +58,7 @@ we've ported to Haskell.
 ```bash
 cd hello
 tns platform add android
+cd app
 ghcjs App.hs
 tns run android
 ```
@@ -91,7 +92,10 @@ this works but it's totally trivial and mechanical.
 
 ## Rebuilding the docker containers
 
-In case you want to build your own containers you can do so with:
+In case you want to build your own containers you can get a copy of
+the docker files from
+[https://github.com/abarbu/haskell-mobile](https://github.com/abarbu/haskell-mobile)
+and rebuild with:
 
 ```bash
 docker build -t abarbu/java:8 docker/java

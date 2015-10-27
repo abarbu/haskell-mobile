@@ -1,2 +1,0 @@
-#!/bin/bash
-ghcjs -O -o /tmp/App App.hs && cp /tmp/App.jsexe/all.js app.js
