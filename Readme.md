@@ -1,6 +1,6 @@
 # Haskell on mobile devices
 
-[![Build Status](http://circleci-badges-max.herokuapp.com/img/abarbu/haskell-mobile/master?token=88944588e8d8ad1413be5d0f2d578ab3b8709c6d)](https://circleci.com/gh/abarbu/haskell-mobile/tree/master)
+[![Build Status](http://circleci-badges-max.herokuapp.com/img/abarbu/haskell-mobile/master?token=ed510657bb935eb3f0b2450cb853d6759e2e6b6b)](https://circleci.com/gh/abarbu/haskell-mobile/tree/master)
 
 An environment to build apps for mobile devices, Android & iOS, with
 bindings to all of the native SDKs including UIs all in Haskell. Note
