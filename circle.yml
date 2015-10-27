@@ -25,6 +25,8 @@ dependencies:
 
 test:
   override:
+    - cd hello; tns platform add android
+    - cd hello/app; ghcjs App.hs
 
 deployment:
   hub: 

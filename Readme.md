@@ -49,7 +49,7 @@ We'll be the running from inside the containers so lets set up some aliases
 ```bash
 alias tns='docker run -it --rm --privileged --net=host -v /dev/bus/usb:/dev/bus/usb -v $PWD:/src abarbu/nativescript tns'
 alias logcat='docker run -it --rm --privileged --net=host -v /dev/bus/usb:/dev/bus/usb -v $PWD:/src abarbu/nativescript pidcat'
-alias compile='docker run -it --rm -v $PWD:/src abarbu/stack-ghcjs-nativescript:lts-3.0 ghcjs'
+alias ghcjs='docker run -it --rm -v $PWD:/src abarbu/stack-ghcjs-nativescript:lts-3.0 ghcjs'
 ```
 
 Lets try the simple Hello World app that Nativescript ships with and
