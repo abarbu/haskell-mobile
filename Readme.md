@@ -98,11 +98,11 @@ the docker files from
 and rebuild with:
 
 ```bash
-docker build -t abarbu/java:8 docker/java
-docker build -t abarbu/android:22 docker/android
-docker build -t abarbu/node.js:0.12 docker/node.js
-docker build -t abarbu/nativescript docker/nativescript
-docker build -t abarbu/stack-ghcjs-nativescript:lts-3.0 docker/stack-ghcjs-nativescript
+docker build -t abarbu/java:8 java
+docker build -t abarbu/android:22 android
+docker build -t abarbu/node.js:0.12 node.js
+docker build -t abarbu/nativescript nativescript
+docker build -t abarbu/stack-ghcjs-nativescript:lts-3.0 stack-ghcjs-nativescript
 ```
 
 This package is distributed under the MIT License
