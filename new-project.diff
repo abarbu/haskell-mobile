@@ -1,0 +1,55 @@
+--- ./app/app.iml	2015-10-28 14:15:38.129958088 -0400
++++ ./app/app.iml	2015-10-28 11:56:19.399479621 -0400
+@@ -92,7 +92,9 @@
+     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+     <orderEntry type="library" exported="" name="support-v4-22.2.1" level="project" />
++    <orderEntry type="library" exported="" name="nativescript" level="project" />
+     <orderEntry type="library" exported="" name="support-annotations-22.2.1" level="project" />
++    <orderEntry type="library" exported="" name="widgets" level="project" />
+     <orderEntry type="library" exported="" name="design-22.2.1" level="project" />
+     <orderEntry type="library" exported="" name="appcompat-v7-22.2.1" level="project" />
+   </component>
+--- ./app/build.gradle	2015-10-28 14:15:38.129958088 -0400
++++ ./app/build.gradle	2015-10-28 11:56:19.399479621 -0400
+@@ -24,4 +24,5 @@
+     testCompile 'junit:junit:4.12'
+     compile 'com.android.support:appcompat-v7:22.2.1'
+     compile 'com.android.support:design:22.2.1'
++    compile files('libs/nativescript.jar')
+ }
+--- ./app/src/main/AndroidManifest.xml	2015-10-28 14:15:38.129958088 -0400
++++ ./app/src/main/AndroidManifest.xml	2015-10-28 11:56:19.399479621 -0400
+@@ -3,13 +3,14 @@
+     package="com.example.root.helloworld" >
+ 
+     <application
++        android:name="com.tns.NativeScriptApplication"
+         android:allowBackup="true"
+         android:icon="@mipmap/ic_launcher"
+         android:label="@string/app_name"
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme" >
+         <activity
+-            android:name=".MainActivity"
++            android:name="com.tns.NativeScriptActivity"
+             android:label="@string/app_name"
+             android:theme="@style/AppTheme.NoActionBar" >
+             <intent-filter>
+--- ./gradle.properties	2015-10-28 14:15:38.119958088 -0400
++++ ./gradle.properties	2015-10-28 11:56:19.399479621 -0400
+@@ -15,4 +15,5 @@
+ # When configured, Gradle will run in incubating parallel mode.
+ # This option should only be used with decoupled projects. More details, visit
+ # http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
+-# org.gradle.parallel=true
+\ No newline at end of file
++# org.gradle.parallel=true
++android.useDeprecatedNdk=true
+--- ./local.properties	2015-10-28 14:15:38.119958088 -0400
++++ ./local.properties	2015-10-28 11:56:19.399479621 -0400
+@@ -9,3 +9,4 @@
+ # header note.
+ #Wed Oct 28 14:00:56 UTC 2015
+ sdk.dir=/usr/local/android-sdk-linux
++ndk.dir=/usr/local/android-ndk-r10e
